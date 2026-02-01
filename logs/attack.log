@@ -1,0 +1,1 @@
+2026-02-01 18:12:32,404 - WARNING - [POLICY VIOLATION] Forbidden tool invoked: file_read_sensitive | Details: Attempted read of /etc/shadow
