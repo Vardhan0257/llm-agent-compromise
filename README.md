@@ -1,11 +1,3 @@
-Good choice. A weak README can still kill a strong project.
-We’ll write one that **forces reviewers to understand the attack in under 2 minutes**.
-
-Below is a **submission-ready, no-nonsense README**.
-You can paste this **as-is** into `README.md`.
-
----
-
 # Autonomous LLM Agent Compromise via Context and Tool Injection
 
 ## Overview
