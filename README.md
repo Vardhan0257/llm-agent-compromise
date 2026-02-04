@@ -1,13 +1,13 @@
-# Autonomous LLM Agent Compromise via Context and Tool Injection
+# AgentCompromiseLab: Autonomous LLM Red Team Simulation
 
 ## Overview
 
-This project demonstrates a **practical attacker workflow** that compromises an autonomous LLM-based agent using **indirect contextual prompt injection**, resulting in a **verifiable security policy violation**.
+This project is a **research prototype** demonstrating a **Red Team Framework** for autonomous LLM agents. It simulates a full attack pipeline—from indirect context injection to multi-agent trust exploitation—and provides a testbed for validating defense strategies.
 
 The attack does **not** rely on malware, software vulnerabilities, or direct user prompt manipulation.
 Instead, it exploits a common design flaw in modern agent systems: **implicit trust in externally ingested context**.
 
-The result is an **unauthorized tool invocation**, logged and auditable, under an otherwise benign user request.
+The framework demonstrates how benign user requests can be weaponized to trigger **unauthorized tool invocations** and **system compromises**.
 
 ---
 
@@ -39,11 +39,26 @@ This project proves that risk with a **reproducible attacker PoC**.
 
 ## Threat Model
 
-**Attacker capabilities**
+**Attacker Capabilities**
 
 * Controls or influences external content consumed by the agent
 * Cannot modify agent code or system prompts
 * No direct user interaction required
+
+**Attack Vectors Supported**
+
+1.  **Context Injection**: Overriding system instructions via document ingestion.
+2.  **Tool Abuse**: Forcing the agent to invoke forbidden APIs (e.g., File I/O).
+3.  **Memory Poisoning**: Corrupting the agent's long-term state/session memory.
+4.  **Multi-Agent Trust Exploit**: Propagating malicious payloads to peer agents via delegation tools.
+
+---
+
+## Attack Chain Visualization
+
+```mermaid
+User Prompt (Benign) --> [Agent Ingestion] --> Context Override (Malicious) --> [LLM Reasoning] --> Tool Invocation (Forbidden) --> System Compromise
+```
 
 **Target**
 
@@ -55,17 +70,6 @@ This project proves that risk with a **reproducible attacker PoC**.
 * Cause a **policy violation**
 * Achieve a measurable attacker win
 
----
-
-## Attack Summary
-
-1. A user submits a **legitimate task** (e.g., document summarization)
-2. The agent ingests **external context** from an attacker-controlled source
-3. Malicious instructions embedded in that context are interpreted as actionable guidance
-4. The agent invokes a **policy-forbidden tool**
-5. The violation is logged with timestamped evidence
-
-This is an **indirect attack** — the user never issues a malicious prompt.
 
 ---
 
@@ -155,4 +159,3 @@ All sensitive actions are simulated and do not interact with real systems.
 ✅ Reproducible results
 
 ---
-
