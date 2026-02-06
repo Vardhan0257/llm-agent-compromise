@@ -1,0 +1,4 @@
+iter,payload,status
+1,benign,blocked
+2,sensitive_read,compromised
+3,obfuscated_exfil,blocked
